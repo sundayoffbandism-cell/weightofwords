@@ -78,8 +78,6 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1 className="app__title">THE WEIGHT OF WORDS</h1>
-
       <main ref={stageRef} className="stage">
         <Seesaw
           leftCards={leftCards}
