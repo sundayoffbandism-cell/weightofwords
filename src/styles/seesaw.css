@@ -1,0 +1,90 @@
+/* 시소가 놓이는 무대. 남은 화면 전체를 차지하며, 카드를 이 안에 놓으면 좌/우로 판정된다. */
+.stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 56px 0 28px;
+}
+
+.seesaw {
+  position: relative;
+  flex: none;
+  width: var(--plank-w);
+  height: calc(var(--stack-h) + var(--bar-h) + var(--tri-h));
+}
+
+.seesaw__ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--line);
+}
+
+/* 삼각형 받침대 (고정) */
+.seesaw__triangle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: calc(var(--tri-h) * 1.1);
+  height: var(--tri-h);
+  transform: translateX(-50%);
+  background: var(--ink);
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+/* 회전하는 부분: 상판 + 좌우 배치 영역(+ 올려진 카드들).
+   상판 가운데(= 받침대 꼭짓점)를 회전 중심으로 삼는다. */
+.seesaw__assembly {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--tri-h) - var(--bar-h) / 2);
+  height: calc(var(--stack-h) + var(--bar-h));
+  transform-origin: 50% calc(100% - var(--bar-h) / 2);
+  transition: transform var(--tilt-duration) cubic-bezier(0.3, 1.35, 0.5, 1);
+  will-change: transform;
+}
+
+.seesaw__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--bar-h);
+  border-radius: 999px;
+  background: var(--ink);
+}
+
+/* 좌우 카드 배치 영역. 카드는 아래에서 위로 쌓인다. */
+.seesaw__zone {
+  position: absolute;
+  bottom: var(--bar-h);
+  width: 50%;
+  height: var(--stack-h);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 4px;
+  border-radius: 18px;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.seesaw__zone--left {
+  left: 0;
+}
+
+.seesaw__zone--right {
+  right: 0;
+}
+
+/* 드래그 중 카드가 이쪽을 향할 때만 아주 옅게 드러난다. */
+.seesaw__zone--hover {
+  background: rgba(22, 22, 22, 0.05);
+}

@@ -1,0 +1,28 @@
+:root {
+  /* color */
+  --bg: #f3f1ec;
+  --ink: #161616;
+  --ink-soft: #6a6a64;
+  --line: #d9d5cc;
+
+  --card-word-bg: #ffffff;
+  --card-word-ink: #161616;
+  --card-object-bg: #161616;
+  --card-object-ink: #f3f1ec;
+
+  /* seesaw geometry */
+  --plank-w: min(92vw, 860px); /* 상판 길이 */
+  --bar-h: 14px; /* 상판 두께 */
+  --tri-h: calc(var(--plank-w) * 0.135 + 14px); /* 받침대 높이: 최대로 기울어도 상판 끝이 바닥을 뚫지 않도록 상판 길이에 비례 */
+  --stack-h: 30vh; /* 카드가 쌓이는 영역의 기준 높이 */
+  --stack-h: clamp(160px, 30dvh, 300px);
+
+  /* motion */
+  --tilt-duration: 900ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --tilt-duration: 200ms;
+  }
+}
