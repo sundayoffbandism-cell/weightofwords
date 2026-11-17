@@ -1,6 +1,8 @@
 :root {
   /* color */
-  --bg: #f3f1ec;
+  --bg: #80e4ff; /* 배경 */
+  --tray-bg: #ffff86; /* 하단 카드 바 */
+  --tray-bg-hover: #f1f16e; /* 시소 위 카드를 트레이로 끌어왔을 때 */
   --ink: #161616;
   --ink-soft: #6a6a64;
   --line: #d9d5cc;

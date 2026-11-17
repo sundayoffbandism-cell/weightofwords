@@ -1,14 +1,14 @@
 .tray {
   flex: none;
   border-top: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--tray-bg);
   padding: 14px 0 max(14px, env(safe-area-inset-bottom));
   transition: background-color 0.2s ease;
 }
 
 /* 시소 위 카드를 이쪽으로 끌어오면 옅게 반응 (놓으면 시소에서 내려온다) */
 .tray--hover {
-  background: rgba(22, 22, 22, 0.06);
+  background: var(--tray-bg-hover);
 }
 
 .tray__scroller {
